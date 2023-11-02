@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{%block titulo%} <title>Reservas - PetShop</title> {%endblock%}
+{%block home%}
+{%endblock%}
+{%block conteudo%}
+  <div class="container col-xl-10 col-xxl-8 px-4" id="reserva">
+    <div class="row align-self-start g-lg-5 pt-5 mt-4" id="conteudo_reserva">
+      <div class="col-lg-7 mx-auto text-center text-lg-start">        
+        
+        <h4 class="display-6 fw-bold lh-1 mb-4 text-center" style="color: #3f2612;">Agende o Spa Perfeito para o Seu Amigo de Quatro Patas! 🐾</h4>
+        <img class="img-fluid rounded shadow p-3 mb-5 bg-body rounded" src="{% static 'img/banho-pet.jpg' %}" alt="Cachorro tomando banho">
+        <p class="col-lg-10 fs-5 mx-auto text-center">Dê ao seu pet o luxo que ele merece com o nosso serviço de banho revitalizante e relaxante.
+          Nossa equipe apaixonada pelo cuidado animal está pronta para proporcionar uma experiência de spa 
+            completa, desde a limpeza suave até a pelagem brilhante.🐶🐱</p>
+        <p class="col-lg-10 fs-6 mx-auto text-center"> 📅 Agende agora mesmo </p>
+      </div>
+
+      <div class="col-md-10 mx-auto col-lg-5 py-2">
+        {% if sucesso %}
+                  <p class="alert alert-success">Reserva realizada com Sucesso!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" href="{% url 'home' %}">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="alert alert-success"> Reserva realizada com Sucesso!</p>
+        {% else %}
+          <form class="needs-validation shadow p-3 mb-5 bg-body rounded" action="" method="POST" novalidate>
+            <div class="mb-2">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+            </div>
+          <button class="w-100 btn btn-warning btn-lg" type="submit">Reservar</button>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{%endblock%}
+

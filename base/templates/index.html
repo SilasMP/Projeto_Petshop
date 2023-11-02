@@ -1,0 +1,151 @@
+{% load static %}
+{% load bootstrap5 %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    {%block titulo%} <title>Pet Shop</title> {%endblock%}
+
+    <!-- Bootstrap core CSS -->
+    <style>
+
+      .bg-image {
+      background-image: url("{% static 'img/fundo2.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      }
+
+      #nav{
+        transition: 0.7s;
+      }
+
+      header.rolagem nav{        
+        background-color: #b08c74;
+        padding: 0px;
+        
+      }
+
+      header.rolagem a{
+        color: #361f0e;
+        
+      }
+
+      .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+        background-color: #fff;
+        text-decoration: #361f0e;
+        padding: 10px; 
+      }
+
+      .text-stroke {
+        -webkit-text-stroke: 1.5px white;
+      }
+
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <!-- Menu Superior -->
+      <nav class="navbar navbar-expand-lg fixed-top position-fixed" id="nav">
+        <div class="container-fluid">
+          <div class="navbar-brand" >
+            <img class="d-block mx-auto" height="60" width="70" src="{% static 'img/logo3.png' %}" alt="logo">
+          </div>
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'reserva' %}" aria-disabled="true">Reserva</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="{% url 'contato' %}" aria-disabled="true">Contato</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="{% url 'admin-login' %}" aria-disabled="true">Administrador</a>
+              </li>      
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Pagina home -->
+      {%block home%}
+      <div class="bg-image d-flex align-items-center" id="home">
+        <div class="col mt-4">
+          <div class="container">
+            <div class="row">
+              
+                <h1 class="display-5 fw-bold text-center text-stroke" style="color: #3b2313">Bem-vindo ao nosso Pet Shop!</h1>
+                <p class="fs-5 text-center" style="color: #361f0e"><i>Somos mais que um pet shop. Somos uma família apaixonada 
+                  por pets. Com anos de experiência e amor pelos animais, estamos prontos para proporcionar os melhores cuidados 
+                  para os seus companheiros peludos.</i></p>              
+            </div>
+          </div>
+        </div>
+      </div>
+      {%endblock%}   
+
+      <!-- Pagina conteudo-->
+        {%block conteudo%}
+        {%endblock%}            
+
+    </main>
+    <footer>
+      <div class="bg-dark text-secondary px-4 py-9 text-center" id="contact">
+        <div class="py-5">
+          <a class="text-decoration-none" href="{% url 'contato' %}"><h3 class="display-6 fw-bold text-white">Fale Conosco</h3></a>
+          <div class="col-lg-9 mx-auto">
+            <p class="fs-5 mb-9">
+              Estamos aqui para responder a todas as suas perguntas e fornecer o suporte necessário para você e seu amado pet. 
+              Entre em contato conosco por meio dos seguintes canais e teremos prazer em ajudar:
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <ul class="list-unstyled fs-6">
+                <a class="text-decoration-none bd-dark" href="{% url 'contato' %}"><li><i class="bi bi-envelope-fill me-3"></i> Mensagem </li></a>
+                <li><i class="bi bi-geo-alt-fill me-3"></i> Endereço: [Endereço do Pet Shop], [Cidade], [Estado]</li>
+                <li><i class="bi bi-telephone-fill me-3"></i> Telefone: (XX) XXXX-XXXX</li>
+                <li><i class="bi bi-clock-fill me-3"></i> Horário de Atendimento: Seg-Sáb, 9:00-18:00</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>      
+      window.addEventListener("scroll",()=>{
+        let header = document.querySelector('#header')
+        header.classList.toggle('rolagem', window.scrollY >0)
+      });
+    </script>
+  </body>
+</html>
