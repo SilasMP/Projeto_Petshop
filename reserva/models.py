@@ -53,6 +53,9 @@ class Petshop(CamposComuns):
 
     def __str__(self):
         return self.nome
+    
+    def qtda_reservas(self):
+        return self.reservas.count()
 
 class Categoria(CamposComuns):
     nome = models.CharField('Categoria', max_length=50)

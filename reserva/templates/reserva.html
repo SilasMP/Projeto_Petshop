@@ -19,14 +19,6 @@
 
       <div class="col-md-10 mx-auto col-lg-5 py-2">
         {% if sucesso %}
-                  <p class="alert alert-success">Reserva realizada com Sucesso!</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" href="{% url 'home' %}">Fechar</button>
-                </div>
-              </div>
-            </div>
-          </div>
           <p class="alert alert-success"> Reserva realizada com Sucesso!</p>
         {% else %}
           <form class="needs-validation shadow p-3 mb-5 bg-body rounded" action="" method="POST" novalidate>

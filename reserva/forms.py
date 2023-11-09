@@ -8,7 +8,7 @@ class ReservaForm(forms.ModelForm):
         data = self.cleaned_data.get('data')
         hoje = date.today()
         if data < hoje:
-            raise forms.ValidationError('Não é possível realizar uma reserva para o passado!')
+            raise forms.ValidationError('Não é possível agendar em uma data anterior a de hoje')
         return data
     
     def clean_turno(self):
@@ -16,7 +16,7 @@ class ReservaForm(forms.ModelForm):
         data = self.cleaned_data.get('data')        
         reserva_turno = Reserva.objects.filter(data=data, turno=turno).count()
         if reserva_turno >= 2:
-            raise forms.ValidationError(f'Numero maximo de reservas para o turno da {turno} excedidas')
+            raise forms.ValidationError('Não há agenda disponivel para este turno no momento')
         return turno
 
     class Meta:

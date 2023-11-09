@@ -3,7 +3,7 @@ from django.db import models
 class Contato(models.Model):
     nome = models.CharField('Nome', max_length=50)
     email = models.EmailField('E-mail')
-    mensagem = models.TextField('Mensagem', blank=True)
+    mensagem = models.TextField('Mensagem')
     criado_em = models.DateTimeField('data', auto_now_add=True)
     lido = models.BooleanField('Lido', default=False, blank=True)
 
