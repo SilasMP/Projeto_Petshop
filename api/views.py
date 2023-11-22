@@ -11,13 +11,13 @@ class ReservaViewSet(ModelViewSet):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-class PetshopModelViewSet(ReadOnlyModelViewSet):
+class PetshopModelViewSet(ModelViewSet):
     queryset = Petshop.objects.all()
     serializer_class = PetshopModelSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-class CategoriaModelViewSet(ReadOnlyModelViewSet):
+class CategoriaModelViewSet(ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaModelSerializer
     authentication_classes = [TokenAuthentication]

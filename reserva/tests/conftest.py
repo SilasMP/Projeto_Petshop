@@ -43,7 +43,7 @@ def dados_validos():
 
 @pytest.fixture
 def dados_para_agendamento_excedido():
-    baker.make(Petshop)
+    petshop = baker.make(Petshop)
     
     amanha = date.today() + timedelta(days=1)
     dados = {
@@ -53,7 +53,7 @@ def dados_para_agendamento_excedido():
         'turno': 'tarde',
         'tamanho': 'pequeno',
         'observacoes': 'Alguma observação relevante',
-        'petshop': 1,
+        'petshop': petshop.pk,
     }
     return dados
 

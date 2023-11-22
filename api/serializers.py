@@ -62,7 +62,7 @@ class ReservaModelSerializer(serializers.ModelSerializer):
         read_only = False
     )
     categoria = CategoriaRelatedFieldCustomSerializer(
-        queryset = Petshop.objects.all(),
+        queryset = Categoria.objects.all(),
         read_only = False
     )
 
@@ -81,6 +81,6 @@ class ReservaModelSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Não é possível agendar em uma data antiga')
 
         if agendamentos_no_turno >= limite_agendamentos:
-            raise serializers.ValidationError('O limite de agendamentos para este turno já foi atingido.')
+            raise serializers.ValidationError('O limite de agendamentos para este turno ja foi atingido')
 
         return data

@@ -44,6 +44,7 @@ class Reserva(CamposComuns):
     class Meta:
         verbose_name = 'Reserva de Banho'
         verbose_name_plural = 'Reservas de Banho'
+        ordering = ['id']
 
 class Petshop(CamposComuns):
     nome = models.CharField('Petshop', max_length=50)
@@ -52,10 +53,15 @@ class Petshop(CamposComuns):
     bairro = models.CharField('Bairro', max_length=50)
 
     def __str__(self):
-        return self.nome
+        return f'{self.nome} : [{self.bairro}]'
     
     def qtda_reservas(self):
         return self.reservas.count()
+    
+    class Meta:
+        verbose_name = 'Petshop Cadastrado'
+        verbose_name_plural = 'Petshops Cadastrados'
+        ordering = ['id']
 
 class Categoria(CamposComuns):
     nome = models.CharField('Categoria', max_length=50)
